@@ -10281,14 +10281,14 @@ document.addEventListener('DOMContentLoaded', function () {
       'Tên': form.querySelector('input[name="full_name"]')?.value.trim() || '',
       'Quan hệ': form.querySelector('input[name="text_input_1"]')?.value.trim() || '',
       'Lời chúc': form.querySelector('input[name="text_input_2"]')?.value.trim() || '',
-      'Tham dự': attendanceValue, 
+      'tham_du': attendanceValue, 
       'Thời gian': new Date().toLocaleString('vi-VN')
     };
 
     // BƯỚC KIỂM TRA: Bạn hãy nhìn vào F12 xem dòng này có hiện đúng chữ không
     console.log("DỮ LIỆU GỬI ĐI:", data);
 
-    if (!data['Tham dự']) {
+    if (!data['tham_du']) {
       alert("Lỗi: Không lấy được trạng thái Tham dự. Vui lòng thử lại!");
       return;
     }
