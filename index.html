@@ -85,6 +85,61 @@
 <script>
       window.TRACK_VIEW_CONTENT = true
     </script>
+<style>
+/* Fix: Hiển thị tên khách mời - group bị đặt ngoài màn hình */
+#w-hbdarwxd {
+  left: 19px !important;
+  top: 707px !important;
+  width: 382px !important;
+}
+#w-ja02q4qk, #w-rt78z2x0, #w-hl3mpl5r {
+  color: rgba(0,0,0,1) !important;
+}
+</style>
+<script>
+// Đảm bảo hiển thị tên khách mời từ URL ?guest=TÊN
+(function() {
+  function applyGuestName() {
+    var params = new URLSearchParams(window.location.search);
+    var guest = params.get('guest');
+    if (!guest) return;
+    
+    // Tìm element tên khách mời
+    var guestEl = document.getElementById('w-hl3mpl5r');
+    if (!guestEl) return;
+    
+    // Tìm text node để thay thế (tránh phá vỡ animation)
+    var textBlockCss = guestEl.querySelector('.text-block-css');
+    if (textBlockCss) {
+      // Tìm text node trực tiếp
+      var textNode = null;
+      for (var i = 0; i < textBlockCss.childNodes.length; i++) {
+        if (textBlockCss.childNodes[i].nodeType === Node.TEXT_NODE) {
+          textNode = textBlockCss.childNodes[i];
+          break;
+        }
+      }
+      if (textNode) {
+        textNode.nodeValue = guest;
+      } else {
+        // Fallback: tạo text node mới
+        textBlockCss.textContent = guest;
+      }
+    }
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      requestAnimationFrame(function() { setTimeout(applyGuestName, 100); });
+    });
+  } else {
+    requestAnimationFrame(function() { setTimeout(applyGuestName, 100); });
+  }
+  
+  // Backup: chạy lại sau 500ms để đảm bảo Webcake không ghi đè
+  setTimeout(applyGuestName, 500);
+})();
+</script>
 </link></meta></head>
 <body ontouchstart="">
 <div class="pageview"><div class="w-alert-message-wrapper" id="webcake-alert-msg" style="display: none;z-index:9999999;"></div><div class="com-section" data-section="" id="w-5fieb1sl"><div class="section-wrapper full-width full-height p-relative"><div class="section-background p-absolute full-width full-height lazy"></div><div class="section-container full-height p-relative"><div class="com-text-block p-absolute is-animation" id="w-4eszafr3"><div class="text-block"><h1 class="text-block-css full-width">Anh Tú &amp; Diệu Nhi</h1></div></div><div class="com-image-block p-absolute" id="w-9xiryvgi"><div class="image-block-css p-relative full-width full-height full-mask-size mask-position"><div aria-label="" class="image-background p-absolute lazy" role="img"></div><div class="image-gradient-border"></div></div></div><div class="com-image-block p-absolute is-animation" id="w-qj4x3hhd"><div class="full-width full-height"><div class="image-block-css p-relative full-width full-height full-mask-size mask-position"><div aria-label="" class="image-background p-absolute lazy" role="img"></div><div class="image-gradient-border"></div></div></div></div><div class="com-text-block p-absolute is-animation" id="w-2qtdpz5v"><div class="text-block"><h1 class="text-block-css full-width">10:00<br/></h1></div></div><div class="p-absolute is-animation" id="w-51uwcprd"><div class="full-width full-height"><div class="line-css full-width"><div class="line-container"></div></div></div></div><div class="com-text-block p-absolute is-animation" id="w-a7d57pg8"><div class="text-block"><h1 class="text-block-css full-width">15.12<br/></h1></div></div><div class="com-text-block p-absolute is-animation" id="w-hmx417or"><div class="text-block"><h1 class="text-block-css full-width">20<br/></h1></div></div><div class="com-text-block p-absolute is-animation" id="w-t2m2uzg4"><div class="text-block"><h2 class="text-block-css full-width">(Nhằm Ngày ...Tháng ... Năm Ất Tỵ)</h2></div></div><div class="com-html-box p-absolute" id="w-k5r7dd4b"><div class="frame-html-box full-width full-height"><!-- ====== AUDIO & TOGGLE (HTML Box) ====== -->
