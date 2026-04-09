@@ -3838,12 +3838,19 @@
       height: 824px;
       top: -273px;
       left: -91px;
-      background: center center/ cover no-repeat content-box border-box url("images/qr2.jpg");
-      background-size: contain;
-      /* Quan trọng: giúp ảnh vừa khít khung */
-      background-repeat: no-repeat;
-      /* Không lặp lại ảnh */
-      background-position: center;
+      background: center center/ cover no-repeat content-box border-box url("images/qr2.jpg") !important;
+      background-size: contain !important;
+      /* Ép ảnh thu nhỏ để thấy toàn bộ nội dung */
+      background-position: center !important;
+      /* Căn giữa */
+      background-repeat: no-repeat !important;
+      background-color: transparent !important;
+      /* Đảm bảo nền không đè lên */
+
+      /* Nếu khung vẫn quá nhỏ, hãy thử tăng nhẹ kích thước khung */
+      width: 200px;
+      /* Chỉnh lại con số này cho phù hợp với thiết kế của bạn */
+      height: 200px;
       --type: 0;
     }
 
