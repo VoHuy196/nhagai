@@ -8441,20 +8441,7 @@
   <script>
     window.TRACK_VIEW_CONTENT = true
   </script>
-  <style>
-    /* Fix: Hiển thị tên khách mời - group bị đặt ngoài màn hình */
-    #w-hbdarwxd {
-      left: 19px !important;
-      top: 707px !important;
-      width: 382px !important;
-    }
 
-    #w-ja02q4qk,
-    #w-rt78z2x0,
-    #w-hl3mpl5r {
-      color: rgba(0, 0, 0, 1) !important;
-    }
-  </style>
   <script>
       // Đảm bảo hiển thị tên khách mời từ URL ?guest=TÊN
       (function () {
@@ -8512,7 +8499,7 @@
         <div class="section-container full-height p-relative">
           <div class="com-text-block p-absolute is-animation" id="w-4eszafr3">
             <div class="text-block">
-              <h1 class="text-block-css full-width">Anh Tú &amp; Diệu Nhi</h1>
+              <h1 class="text-block-css full-width">Phạm Tá &amp; Thu Huyền</h1>
             </div>
           </div>
           <div class="com-image-block p-absolute" id="w-9xiryvgi">
@@ -8531,7 +8518,7 @@
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-2qtdpz5v">
             <div class="text-block">
-              <h1 class="text-block-css full-width">10:00<br /></h1>
+              <h1 class="text-block-css full-width">15:00<br />Thứ 7</h1>
             </div>
           </div>
           <div class="p-absolute is-animation" id="w-51uwcprd">
@@ -8543,17 +8530,17 @@
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-a7d57pg8">
             <div class="text-block">
-              <h1 class="text-block-css full-width">15.12<br /></h1>
+              <h1 class="text-block-css full-width">18.04<br /></h1>
             </div>
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-hmx417or">
             <div class="text-block">
-              <h1 class="text-block-css full-width">20<br /></h1>
+              <h1 class="text-block-css full-width">18<br />04<br /></h1>
             </div>
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-t2m2uzg4">
             <div class="text-block">
-              <h2 class="text-block-css full-width">(Nhằm Ngày ...Tháng ... Năm Ất Tỵ)</h2>
+              <h2 class="text-block-css full-width">(Tức Ngày 02 Tháng 03 Năm Bính Ngọ)</h2>
             </div>
           </div>
           <div class="com-html-box p-absolute" id="w-k5r7dd4b">
@@ -8826,107 +8813,7 @@
           <div class="com-html-box p-absolute" id="w-qhqwf1b2">
             <div class="frame-html-box full-width full-height">
               <script>
-                /**
-                 * ===================== TEXT REPLACER for WEBCAKE =====================
-                 * - Giữ nguyên markup/animation (không dùng innerHTML/textContent).
-                 * - Chỉ chỉnh nodeValue của text node.
-                 * - Tự bật white-space: pre-line nếu chuỗi có "\n".
-                 * =====================================================================
-                 */
-
-                const MAPPING = [
-                  { id: "w-4eszafr3", text: "Phạm Tá & Thu Huyền " },
-                  { id: "w-2qtdpz5v", text: "15:00\nThứ 7 " },
-                  { id: "w-a7d57pg8", text: "18.04 " },
-                  { id: "w-hmx417or", text: "18\n04 " },
-                  { id: "w-t2m2uzg4", text: "(Tức Ngày 02 Tháng 03 Năm Bính Ngọ) " },
-                  { id: "w-ro447tq1", text: "Chú Rể " },
-                  { id: "w-6ai6or66", text: "Phạm Tá " },
-                  { id: "w-7xq4ifzq", text: "Cô Dâu " },
-                  { id: "w-p5it58kn", text: "Thu Huyền " },
-                  { id: "w-vrj5ae9z", text: "NHÀ TRAI " },
-                  { id: "w-uwl755j6", text: "Nam Hồng, Tiền Hải, Thái Bình " },
-                  { id: "w-2g81k7ss", text: "Bà Vũ Thị Mỵ " },
-                  { id: "w-o244vplo", text: "NHÀ GÁI " },
-                  { id: "w-otjboi4o", text: "14/93 Trần Xuân Soạn, P.Đông Thọ, TP.Thanh Hóa " },
-                  { id: "w-1e424hst", text: "ÔNG NGUYỄN TRỌNG PHƯƠNG\nBÀ NGUYỄN THỊ LÊ " },
-                  { id: "w-6uhy5p4v", text: "THAM DỰ LỄ CƯỚI PHẠM TÁ & THU HUYỀN " },
-                  { id: "w-n8gzvpxw", text: "LỄ NẠP TÀI " },
-                  { id: "w-ddu61ha7", text: "15 giờ 00 " },
-                  { id: "w-7zhr1v3u", text: "Thứ 7 " },
-                  { id: "w-3f79uhf5", text: "18 " },
-                  { id: "w-td3u6t5g", text: "Tháng 04 " },
-                  { id: "w-7qmumsol", text: "Năm 2026 " },
-                  { id: "w-jv9i3lvl", text: "(Tức Ngày 02 Tháng 03 Năm Bính Ngọ) " },
-                  { id: "w-qjyljn60", text: "Tư gia nhà gái " },
-                  { id: "w-mskqkofa", text: "TIỆC MỪNG LỄ NẠP TÀI " },
-                  { id: "w-5sx9ie42", text: "17:15 - Thứ 7 " },
-                  { id: "w-gfo2idta", text: "18.04.2026 " },
-                  { id: "w-jd112yel", text: "(Tức Ngày 02 Tháng 03 Năm Bính Ngọ) " },
-                  { id: "w-je8e8czr", text: "Tại Nhà khách Z111, Thanh Hóa " },
-                  { id: "w-q4lm07gq", text: "NHÀ KHÁCH Z111 " },
-                  { id: "w-y5320mge", text: "284 Bà Triệu, P.Hàm Rồng, TP. Thanh Hóa " },
-                ];
-
-                /** Giữ markup: chỉ đổi nodeValue của text node */
-                function setTextPreserve(el, newText) {
-                  if (!el) return;
-                  const tag = el.tagName?.toLowerCase?.();
-                  if (tag === "input" || tag === "textarea") {
-                    el.value = newText;
-                    return;
-                  }
-                  // Nếu có xuống dòng mà CSS chưa hiển thị, bật pre-line cục bộ
-                  if (newText.includes("\n")) {
-                    const ws = (el instanceof Element) ? getComputedStyle(el).whiteSpace : "normal";
-                    if (ws === "normal") el.style.whiteSpace = "pre-line";
-                  }
-                  // 1) ưu tiên text node trực tiếp
-                  const directText = Array.from(el.childNodes).find(n => n.nodeType === Node.TEXT_NODE);
-                  if (directText) { directText.nodeValue = newText; return; }
-                  // 2) nếu text nằm sâu trong các span wrapper (phục vụ animation)
-                  const walker = document.createTreeWalker(
-                    el,
-                    NodeFilter.SHOW_TEXT,
-                    { acceptNode: n => n.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT }
-                  );
-                  const firstText = walker.nextNode();
-                  if (firstText) firstText.nodeValue = newText;
-                }
-
-                /** Đợi DOM + 1 frame: tránh ghi trước khi thư viện split text/animation chạy */
-                function onReady(cb) {
-                  const run = () => requestAnimationFrame(() => setTimeout(cb, 0));
-                  if (document.readyState === "loading") {
-                    document.addEventListener("DOMContentLoaded", run, { once: true });
-                  } else {
-                    run();
-                  }
-                }
-
-                function applyMapping() {
-                  for (const { id, text } of MAPPING) {
-                    const el = document.getElementById(id);
-                    if (el) setTextPreserve(el, text);
-                  }
-                }
-
-                onReady(applyMapping);
-
-                /** Nếu Webcake tái render/lazy → áp lại khi các ID mục tiêu xuất hiện */
-                const idSet = new Set(MAPPING.map(m => m.id));
-                const mo = new MutationObserver(muts => {
-                  for (const m of muts) {
-                    for (const node of m.addedNodes || []) {
-                      if (!(node instanceof Element)) continue;
-                      if (idSet.has(node.id)) { applyMapping(); return; }
-                      for (const id of idSet) {
-                        if (node.querySelector?.(`#${CSS.escape(id)}`)) { applyMapping(); return; }
-                      }
-                    }
-                  }
-                });
-                mo.observe(document.documentElement, { childList: true, subtree: true });
+                /** MAPPING script removed to prevent text duplication/overlap */
               </script>
               <!--
 /* =====================================================================
@@ -8990,17 +8877,17 @@ Adora Luxury – Quận 7
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-6ai6or66">
             <div class="text-block">
-              <h1 class="text-block-css full-width">Tên CR</h1>
+              <h1 class="text-block-css full-width">Phạm Tá</h1>
             </div>
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-uwl755j6">
             <div class="text-block">
-              <p class="text-block-css full-width">Địa Chỉ</p>
+              <p class="text-block-css full-width">Nam Hồng, Tiền Hải, Thái Bình</p>
             </div>
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-2g81k7ss">
             <div class="text-block">
-              <p class="text-block-css full-width">PHỤ HUYNH<br /></p>
+              <p class="text-block-css full-width">Bà Vũ Thị Mỵ<br /></p>
             </div>
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-o244vplo">
@@ -9015,17 +8902,17 @@ Adora Luxury – Quận 7
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-p5it58kn">
             <div class="text-block">
-              <h1 class="text-block-css full-width">Tên CD</h1>
+              <h1 class="text-block-css full-width">Thu Huyền</h1>
             </div>
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-otjboi4o">
             <div class="text-block">
-              <p class="text-block-css full-width">Địa Chỉ</p>
+              <p class="text-block-css full-width">14/93 Trần Xuân Soạn, P.Đông Thọ, TP.Thanh Hóa</p>
             </div>
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-1e424hst">
             <div class="text-block">
-              <p class="text-block-css full-width">PHỤ HUYNH<br /></p>
+              <p class="text-block-css full-width">ÔNG NGUYỄN TRỌNG PHƯƠNG<br />BÀ NGUYỄN THỊ LÊ<br /></p>
             </div>
           </div>
           <div class="com-image-block p-absolute is-animation" id="w-n420q3gb">
@@ -9100,12 +8987,12 @@ Adora Luxury – Quận 7
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-ddu61ha7">
             <div class="text-block">
-              <p class="text-block-css full-width">00 giờ 00<br /></p>
+              <p class="text-block-css full-width">15 giờ 00<br /></p>
             </div>
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-7qmumsol">
             <div class="text-block">
-              <p class="text-block-css full-width"><span style="font-weight: normal;">Năm 2025</span><br /></p>
+              <p class="text-block-css full-width"><span style="font-weight: normal;">Năm 2026</span><br /></p>
             </div>
           </div>
           <div class="p-absolute is-animation" id="w-opzpfprk">
@@ -9124,17 +9011,17 @@ Adora Luxury – Quận 7
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-jv9i3lvl">
             <div class="text-block">
-              <p class="text-block-css full-width">(Tức Ngày 00 Tháng 00 Năm Ất Tỵ)<br /></p>
+              <p class="text-block-css full-width">(Tức Ngày 02 Tháng 03 Năm Bính Ngọ)<br /></p>
             </div>
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-7zhr1v3u">
             <div class="text-block">
-              <p class="text-block-css full-width">Thứ <br /></p>
+              <p class="text-block-css full-width">Thứ 7<br /></p>
             </div>
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-td3u6t5g">
             <div class="text-block">
-              <p class="text-block-css full-width">Tháng 05<br /></p>
+              <p class="text-block-css full-width">Tháng 04<br /></p>
             </div>
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-uvta2v28">
@@ -9144,12 +9031,12 @@ Adora Luxury – Quận 7
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-qjyljn60">
             <div class="text-block">
-              <p class="text-block-css full-width">Tại ...</p>
+              <p class="text-block-css full-width">Tư gia nhà gái</p>
             </div>
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-n8gzvpxw">
             <div class="text-block">
-              <p class="text-block-css full-width">LỄ THÀNH HÔN<br /></p>
+              <p class="text-block-css full-width">LỄ NẠP TÀI<br /></p>
             </div>
           </div>
         </div>
@@ -9166,27 +9053,27 @@ Adora Luxury – Quận 7
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-mskqkofa">
             <div class="text-block">
-              <p class="text-block-css full-width">TIỆC MỪNG LỄ THÀNH HÔN</p>
+              <p class="text-block-css full-width">TIỆC MỪNG LỄ NẠP TÀI</p>
             </div>
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-gfo2idta">
             <div class="text-block">
-              <h2 class="text-block-css full-width">.02.2025</h2>
+              <h2 class="text-block-css full-width">18.04.2026</h2>
             </div>
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-5sx9ie42">
             <div class="text-block">
-              <h2 class="text-block-css full-width">THỨ 0 | 00H00<br /></h2>
+              <h2 class="text-block-css full-width">17:15 - Thứ 7<br /></h2>
             </div>
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-jd112yel">
             <div class="text-block">
-              <p class="text-block-css full-width">(Tức Ngày .. Tháng .. Năm Ất Tỵ)<br /></p>
+              <p class="text-block-css full-width">(Tức Ngày 02 Tháng 03 Năm Bính Ngọ)<br /></p>
             </div>
           </div>
           <div class="com-text-block p-absolute is-animation" id="w-je8e8czr">
             <div class="text-block">
-              <p class="text-block-css full-width">Tại ...</p>
+              <p class="text-block-css full-width">Tại Nhà khách Z111, Thanh Hóa</p>
             </div>
           </div>
         </div>
