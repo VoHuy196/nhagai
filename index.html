@@ -10275,11 +10275,15 @@ Adora Luxury – Quận 7
         const wishesInput = popup ? popup.querySelector('input[name="text_input_2"]') : document.querySelector('input[name="text_input_2"]');
         const attendanceSelect = popup ? popup.querySelector('select[name="select_1"]') : document.querySelector('select[name="select_1"]');
 
+        const selectedOption = attendanceSelect ? attendanceSelect.options[attendanceSelect.selectedIndex] : null;
+        
+        const attendanceText = (selectedOption && selectedOption.value !== "") ? selectedOption.textContent.trim() : "";
+        
         const data = {
           'Tên': fullNameInput?.value || '',
           'Quan hệ': relationInput?.value || '',
           'Lời chúc': wishesInput?.value || '',
-          'Tham dự': attendanceSelect?.value || '',
+          'Tham dự': attendanceText,
           'Thời gian': new Date().toLocaleString('vi-VN')
         };
 
