@@ -10259,38 +10259,43 @@ Adora Luxury – Quận 7
     }</script>
   <script>
 document.addEventListener('DOMContentLoaded', function () {
+  // Tìm chính xác form theo ID
   const form = document.getElementById('6ahmj60e');
   if (!form) return;
 
   form.addEventListener('submit', async function (e) {
-    // Dòng này cực kỳ quan trọng: Nó chặn hệ thống cũ của Pancake lại để không bị lỗi 404
+    // 1. NGĂN CHẶN tuyệt đối các script khác can thiệp (chống lỗi 404 và lỗi .play())
     e.preventDefault();
-    e.stopPropagation(); 
+    e.stopPropagation();
 
-    // 1. Lấy các phần tử Input
-    const fullNameInput = document.querySelector('input[name="full_name"]');
-    const relationInput = document.querySelector('input[name="text_input_1"]');
-    const wishesInput = document.querySelector('input[name="text_input_2"]');
-    const selectEl = document.querySelector('select[name="select_1"]');
-
-    // 2. Xử lý lấy chữ "Tham dự" (textContent)
-    let attendanceValue = '';
-    if (selectEl && selectEl.selectedIndex > 0) {
-      attendanceValue = selectEl.options[selectEl.selectedIndex].textContent.trim();
-    }
-
-    // 3. Chuẩn bị dữ liệu - Kiểm tra kỹ tên cột trên Google Sheet của bạn
-    const data = {
-      'Tên': fullNameInput?.value || '',
-      'Quan hệ': relationInput?.value || '',
-      'Lời chúc': wishesInput?.value || '',
-      'Tham dự': attendanceValue, // Lấy nội dung chữ hiển thị
-      'Thời gian': new Date().toLocaleString('vi-VN')
-    };
-
-    console.log('Dữ liệu chuẩn bị gửi:', data);
+    console.log('Đang xử lý gửi form...');
 
     try {
+      // 2. Lấy các phần tử Input dựa theo thuộc tính name (chính xác hơn ID)
+      const fullNameInput = form.querySelector('input[name="full_name"]');
+      const relationInput = form.querySelector('input[name="text_input_1"]');
+      const wishesInput = form.querySelector('input[name="text_input_2"]');
+      const selectEl = form.querySelector('select[name="select_1"]');
+
+      // 3. Xử lý lấy nội dung chữ của mục Tham dự
+      let attendanceValue = '';
+      if (selectEl && selectEl.selectedIndex > 0) {
+        // Lấy textContent để chắc chắn có chữ "Có Thể Tham Dự" gửi đi
+        attendanceValue = selectEl.options[selectEl.selectedIndex].textContent.trim();
+      }
+
+      // 4. Kiểm tra dữ liệu trước khi gửi (Xem tại Console F12)
+      const data = {
+        'Tên': fullNameInput ? fullNameInput.value.trim() : '',
+        'Quan hệ': relationInput ? relationInput.value.trim() : '',
+        'Lời chúc': wishesInput ? wishesInput.value.trim() : '',
+        'Tham dự': attendanceValue,
+        'Thời gian': new Date().toLocaleString('vi-VN')
+      };
+      
+      console.log('Dữ liệu sẽ gửi lên Sheet:', data);
+
+      // 5. Gửi lên SheetDB
       const response = await fetch('https://sheetdb.io/api/v1/0x7lvv8dek5jv', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -10300,15 +10305,15 @@ document.addEventListener('DOMContentLoaded', function () {
       if (response.ok) {
         alert('Cảm ơn bạn đã xác nhận tham dự! ❤️');
         form.reset();
-        // Nếu có popup đang mở thì đóng nó lại (tùy chọn)
-        const closeBtn = document.querySelector('[id*="n773xftp"]');
+        // Đóng popup nếu cần (tìm nút đóng theo ID của bạn)
+        const closeBtn = document.getElementById('n773xftp');
         if (closeBtn) closeBtn.click();
       } else {
-        alert('Có lỗi khi lưu dữ liệu, vui lòng thử lại!');
+        throw new Error('SheetDB response not ok');
       }
     } catch (error) {
-      console.error('Error:', error);
-      alert('Không thể kết nối đến server, vui lòng thử lại!');
+      console.error('Lỗi thực thi:', error);
+      alert('Gửi thất bại. Vui lòng thử lại hoặc chụp màn hình lỗi này gửi cho mình nhé!');
     }
   });
 });
