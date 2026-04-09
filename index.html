@@ -8441,7 +8441,20 @@
   <script>
     window.TRACK_VIEW_CONTENT = true
   </script>
+  <style>
+    /* Fix: Hiển thị tên khách mời - group bị đặt ngoài màn hình */
+    #w-hbdarwxd {
+      left: 19px !important;
+      top: 707px !important;
+      width: 382px !important;
+    }
 
+    #w-ja02q4qk,
+    #w-rt78z2x0,
+    #w-hl3mpl5r {
+      color: rgba(0, 0, 0, 1) !important;
+    }
+  </style>
   <script>
       // Đảm bảo hiển thị tên khách mời từ URL ?guest=TÊN
       (function () {
@@ -8486,6 +8499,51 @@
         setTimeout(applyGuestName, 500);
       })();
   </script>
+
+  <!-- <script>
+      // Đảm bảo hiển thị tên khách mời từ URL ?guest=TÊN
+      (function () {
+        function applyGuestName() {
+          var params = new URLSearchParams(window.location.search);
+          var guest = params.get('guest');
+          if (!guest) return;
+
+          // Tìm element tên khách mời
+          var guestEl = document.getElementById('w-hl3mpl5r');
+          if (!guestEl) return;
+
+          // Tìm text node để thay thế (tránh phá vỡ animation)
+          var textBlockCss = guestEl.querySelector('.text-block-css');
+          if (textBlockCss) {
+            // Tìm text node trực tiếp
+            var textNode = null;
+            for (var i = 0; i < textBlockCss.childNodes.length; i++) {
+              if (textBlockCss.childNodes[i].nodeType === Node.TEXT_NODE) {
+                textNode = textBlockCss.childNodes[i];
+                break;
+              }
+            }
+            if (textNode) {
+              textNode.nodeValue = guest;
+            } else {
+              // Fallback: tạo text node mới
+              textBlockCss.textContent = guest;
+            }
+          }
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function () {
+            requestAnimationFrame(function () { setTimeout(applyGuestName, 100); });
+          });
+        } else {
+          requestAnimationFrame(function () { setTimeout(applyGuestName, 100); });
+        }
+
+        // Backup: chạy lại sau 500ms để đảm bảo Webcake không ghi đè
+        setTimeout(applyGuestName, 500);
+      })();
+  </script> -->
   </link>
   </meta>
 </head>
