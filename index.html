@@ -10258,66 +10258,61 @@ Adora Luxury – Quận 7
       }
     }</script>
   <script>
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('6ahmj60e');
+  if (!form) return;
 
-    // SheetDB Integration - Save form data
-    document.addEventListener('DOMContentLoaded', function () {
-      const form = document.getElementById('6ahmj60e');
-      if (!form) return;
+  form.addEventListener('submit', async function (e) {
+    // Dòng này cực kỳ quan trọng: Nó chặn hệ thống cũ của Pancake lại để không bị lỗi 404
+    e.preventDefault();
+    e.stopPropagation(); 
 
-      // Get form parent popup to find inputs
-      const popup = form.closest('[id*="sltrr7z"]');
+    // 1. Lấy các phần tử Input
+    const fullNameInput = document.querySelector('input[name="full_name"]');
+    const relationInput = document.querySelector('input[name="text_input_1"]');
+    const wishesInput = document.querySelector('input[name="text_input_2"]');
+    const selectEl = document.querySelector('select[name="select_1"]');
 
-      form.addEventListener('submit', async function (e) {
-  e.preventDefault();
-
-  // Lấy các Input
-  const fullNameInput = popup ? popup.querySelector('input[name="full_name"]') : document.querySelector('input[name="full_name"]');
-  const relationInput = popup ? popup.querySelector('input[name="text_input_1"]') : document.querySelector('input[name="text_input_1"]');
-  const wishesInput = popup ? popup.querySelector('input[name="text_input_2"]') : document.querySelector('input[name="text_input_2"]');
-  
-  // Lấy thẻ Select xác nhận tham dự
-  const selectEl = popup ? popup.querySelector('select[name="select_1"]') : document.querySelector('select[name="select_1"]');
-  
-  let attendanceValue = '';
-  // Kiểm tra nếu đã chọn (selectedIndex > 0 để bỏ qua dòng tiêu đề mặc định)
-  if (selectEl && selectEl.selectedIndex > 0) {
-      // Ép lấy TextContent (chữ hiển thị) để chắc chắn không bị lỗi value="untitled"
+    // 2. Xử lý lấy chữ "Tham dự" (textContent)
+    let attendanceValue = '';
+    if (selectEl && selectEl.selectedIndex > 0) {
       attendanceValue = selectEl.options[selectEl.selectedIndex].textContent.trim();
-  }
+    }
 
-  // Chuẩn bị dữ liệu gửi đi - Đảm bảo phím 'Tham dự' khớp 100% với tên cột trên Sheet
-  const data = {
-    'Tên': fullNameInput?.value || '',
-    'Quan hệ': relationInput?.value || '',
-    'Lời chúc': wishesInput?.value || '',
-    'Tham dự': attendanceValue, // Dùng biến duy nhất đã xử lý ở trên
-    'Thời gian': new Date().toLocaleString('vi-VN')
-  };
+    // 3. Chuẩn bị dữ liệu - Kiểm tra kỹ tên cột trên Google Sheet của bạn
+    const data = {
+      'Tên': fullNameInput?.value || '',
+      'Quan hệ': relationInput?.value || '',
+      'Lời chúc': wishesInput?.value || '',
+      'Tham dự': attendanceValue, // Lấy nội dung chữ hiển thị
+      'Thời gian': new Date().toLocaleString('vi-VN')
+    };
 
-        try {
-          const response = await fetch('https://sheetdb.io/api/v1/0x7lvv8dek5jv', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-          });
+    console.log('Dữ liệu chuẩn bị gửi:', data);
 
-          if (response.ok) {
-            console.log('✓ Dữ liệu đã lưu thành công!');
-            alert('Cảm ơn bạn đã xác nhận tham dự! ❤️');
-            form.reset();
-          } else {
-            console.error('Lỗi:', response.status);
-            alert('Có lỗi, vui lòng thử lại!');
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          alert('Có lỗi, vui lòng thử lại!');
-        }
+    try {
+      const response = await fetch('https://sheetdb.io/api/v1/0x7lvv8dek5jv', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
       });
-    });
-  </script>
+
+      if (response.ok) {
+        alert('Cảm ơn bạn đã xác nhận tham dự! ❤️');
+        form.reset();
+        // Nếu có popup đang mở thì đóng nó lại (tùy chọn)
+        const closeBtn = document.querySelector('[id*="n773xftp"]');
+        if (closeBtn) closeBtn.click();
+      } else {
+        alert('Có lỗi khi lưu dữ liệu, vui lòng thử lại!');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Không thể kết nối đến server, vui lòng thử lại!');
+    }
+  });
+});
+</script>
   <script type="text/javascript">
     window.page_language = "default"
     window.page_currency = "VND"
