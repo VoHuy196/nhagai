@@ -10279,7 +10279,14 @@ Adora Luxury – Quận 7
         const selectedOption = attendanceSelect ? attendanceSelect.options[attendanceSelect.selectedIndex] : null;
         
         const attendanceText = (selectedOption && selectedOption.value !== "") ? selectedOption.textContent.trim() : "";
-        
+        const selectEl = document.querySelector('select[name="select_1"]');
+        let attendance = '';
+
+        // Kiểm tra xem đã chọn gì chưa (selectedIndex > 0 giúp bỏ qua dòng "Bạn có tham dự không?")
+        if (selectEl && selectEl.selectedIndex > 0) {
+        // Lấy trực tiếp nội dung chữ (textContent) của dòng được chọn
+            attendance = selectEl.options[selectEl.selectedIndex].textContent.trim();
+        }
         const data = {
           'Tên': fullNameInput?.value || '',
           'Quan hệ': relationInput?.value || '',
